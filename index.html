@@ -314,6 +314,64 @@
   .footer-links a { color: var(--muted); }
   .footer-links a:hover { color: var(--text); }
   .footer-copy { width: 100%; text-align: center; margin-top: 20px; font-size: 12px; color: #374151; }
+
+  /* CAROUSEL */
+  .carousel-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+  }
+  .carousel-track {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 210 / 297;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    background: #fff;
+  }
+  @media(max-width: 600px) {
+    .carousel-track { max-width: 85%; }
+  }
+  .carousel-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 16px;
+  }
+  .carousel-img.active { opacity: 1; }
+  .carousel-arrow {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    flex-shrink: 0;
+  }
+  .carousel-arrow:hover { background: var(--purple); transform: scale(1.1); }
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .carousel-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .carousel-dot.active { background: var(--blue); }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -399,6 +457,29 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
         <p>Você recebe um PDF organizado com todas as atividades. Acessa pelo celular, tablet ou computador e imprime quando quiser em qualquer impressora doméstica.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- EXEMPLOS DE ATIVIDADES -->
+<section id="exemplos" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <p class="section-label c-blue reveal">Veja na prática</p>
+    <h2 class="section-title reveal d1">Exemplos de atividades</h2>
+    <p class="section-sub reveal d2">Material pronto para imprimir em formato A4</p>
+
+    <div class="carousel-wrap reveal d3">
+      <button class="carousel-arrow carousel-prev" onclick="moveCarousel(-1)">←</button>
+      <div class="carousel-track">
+        <img src="https://i.postimg.cc/Fs1Ghg4w/img-1.jpg" class="carousel-img active" />
+        <img src="https://i.postimg.cc/vHDXGLsN/img-2.jpg" class="carousel-img" />
+        <img src="https://i.postimg.cc/sD1K39r0/img-3.jpg" class="carousel-img" />
+        <img src="https://i.postimg.cc/65TzBLXS/img-4.jpg" class="carousel-img" />
+        <img src="https://i.postimg.cc/VL54zB8h/img-5.jpg" class="carousel-img" />
+      </div>
+      <button class="carousel-arrow carousel-next" onclick="moveCarousel(1)">→</button>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots"></div>
   </div>
 </section>
 
@@ -677,6 +758,33 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' })
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+
+  let carouselIndex = 0;
+  const carouselImages = document.querySelectorAll('.carousel-img');
+  const dotsContainer = document.getElementById('carouselDots');
+
+  carouselImages.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(dot);
+  });
+
+  function moveCarousel(direction) {
+    carouselImages[carouselIndex].classList.remove('active');
+    document.querySelectorAll('.carousel-dot')[carouselIndex].classList.remove('active');
+    carouselIndex = (carouselIndex + direction + carouselImages.length) % carouselImages.length;
+    carouselImages[carouselIndex].classList.add('active');
+    document.querySelectorAll('.carousel-dot')[carouselIndex].classList.add('active');
+  }
+
+  function goToSlide(i) {
+    carouselImages[carouselIndex].classList.remove('active');
+    document.querySelectorAll('.carousel-dot')[carouselIndex].classList.remove('active');
+    carouselIndex = i;
+    carouselImages[carouselIndex].classList.add('active');
+    document.querySelectorAll('.carousel-dot')[carouselIndex].classList.add('active');
+  }
 
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item')
