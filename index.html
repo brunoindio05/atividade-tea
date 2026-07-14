@@ -368,52 +368,6 @@
   .footer-links a { color: var(--muted); }
   .footer-links a:hover { color: var(--text); }
   .footer-copy { width: 100%; text-align: center; margin-top: 20px; font-size: 12px; color: #374151; }
-
-  /* UPSELL POPUP */
-  .upsell-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.85);
-    display: none; align-items: center; justify-content: center;
-    z-index: 9999; padding: 20px;
-  }
-  .upsell-overlay.open { display: flex; animation: upsellFadeIn 0.3s ease; }
-  @keyframes upsellFadeIn { from { opacity: 0; } to { opacity: 1; } }
-  .upsell-popup {
-    position: relative;
-    background: var(--card); border: 1px solid var(--border); border-top: 4px solid var(--blue);
-    border-radius: 16px; max-width: 420px; width: 100%; max-height: 92vh; overflow-y: auto;
-    box-shadow: 0 0 80px rgba(0,0,0,0.8); padding: 12px; text-align: center;
-  }
-  .upsell-close {
-    position: absolute; top: 10px; right: 12px;
-    background: none; border: none; cursor: pointer; padding: 0;
-    color: rgba(255,255,255,0.3); font-size: 18px; line-height: 1;
-  }
-  .upsell-tag {
-    display: inline-block; background: var(--red); color: #fff; font-weight: 700; font-size: 12px;
-    letter-spacing: 0.04em; text-transform: uppercase; padding: 8px 16px; border-radius: 999px; margin-bottom: 8px;
-  }
-  .upsell-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; line-height: 1.25; }
-  .upsell-sub { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-  .upsell-timer-wrap { margin-bottom: 8px; }
-  .upsell-timer { background: var(--red); color: #fff; font-size: 28px; font-weight: 700; border-radius: 12px; padding: 8px 16px; }
-  .upsell-timer-label { font-size: 12px; color: var(--muted); margin-top: 8px; }
-  .upsell-card { background: rgba(255,255,255,0.03); border: 2px solid var(--yellow); border-radius: 20px; padding: 12px; margin-bottom: 8px; }
-  .upsell-badge { display: inline-block; background: linear-gradient(135deg, var(--yellow), var(--orange)); color: #1A1200; font-weight: 700; font-size: 12px; padding: 6px 16px; border-radius: 999px; margin-bottom: 8px; }
-  .upsell-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-  .upsell-price-old { text-decoration: line-through; color: var(--muted); font-size: 15px; }
-  .upsell-price-new { font-size: 32px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
-  .upsell-bonus-list { list-style: none; text-align: left; margin-bottom: 4px; }
-  .upsell-bonus-list li { font-size: 11px; color: var(--soft); margin-bottom: 8px; }
-  .upsell-btn-main {
-    display: block; width: 100%; text-align: center;
-    background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
-    color: #fff; font-weight: 700; font-size: 14px;
-    padding: 12px; border-radius: 16px; margin-bottom: 8px;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .upsell-btn-main:hover { opacity: 0.9; transform: scale(1.02); }
-  .upsell-btn-secondary { display: block; text-align: center; font-size: 13px; color: var(--muted); }
-  .upsell-btn-secondary:hover { color: var(--soft); }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -696,7 +650,7 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
                 <li>✅ Aplicação imediata, sem curso, sem manual</li>
                 <li>✅ Funciona em qualquer impressora doméstica</li>
               </ul>
-              <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="btn-basico" class="btn-cta">Pagar R$ 5,90 via Pix - Cartão agora →</a>
+              <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" class="btn-cta">Pagar R$ 5,90 via Pix - Cartão agora →</a>
               <p class="security-note">🔒 Pagamento 100% seguro. Após o pagamento, você recebe o acesso imediatamente.</p>
             </div>
           </div>
@@ -834,36 +788,6 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
   <div class="footer-copy">© 2026 Atividades TEA. Todos os direitos reservados. Material pedagógico para crianças com Transtorno do Espectro Autista.</div>
 </footer>
 
-<!-- UPSELL POPUP -->
-<div class="upsell-overlay" id="upsellOverlay">
-  <div class="upsell-popup">
-    <button type="button" class="upsell-close" id="upsellClose" aria-label="Fechar">×</button>
-    <span class="upsell-tag">⚡ OFERTA EXCLUSIVA POR TEMPO LIMITADO</span>
-    <h2 class="upsell-title">Espera! Temos uma oferta especial para você</h2>
-    <p class="upsell-sub">Antes de continuar com o Plano Básico, veja o que você pode ganhar agora</p>
-    <div class="upsell-timer-wrap">
-      <div class="upsell-timer" id="upsellTimer">02:00</div>
-      <div class="upsell-timer-label">Essa oferta expira em:</div>
-    </div>
-    <div class="upsell-card">
-      <span class="upsell-badge">🔥 MAIS VENDIDO</span>
-      <h3>Plano Premium</h3>
-      <div class="upsell-price-old">R$ 14,90</div>
-      <div class="upsell-price-new">R$ 9,90</div>
-      <ul class="upsell-bonus-list">
-        <li>✅ Mais de 1000 atividades para crianças com TEA</li>
-        <li>✅ +101 Ideias para Brincar e Ensinar Autistas</li>
-        <li>✅ +300 Atividades Lúdicas de Alfabetização para TEA</li>
-        <li>🖼️ Painéis Decorativos GRÁTIS</li>
-        <li>🧠 Atividades para TDA e TDAH GRÁTIS</li>
-        <li>🎲 Jogos Educativos Impressos GRÁTIS</li>
-      </ul>
-    </div>
-    <a href="https://ggcheckout.app/checkout/v2/BFbyw3rHJuWx5fYWBmqO" id="upsellBtnPremium" class="upsell-btn-main">✅Sim! Quero o Premium por R$ 9,90 agora</a>
-    <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="upsellBtnBasico" class="upsell-btn-secondary">Não obrigado, continuar com o Básico por R$ 5,90</a>
-  </div>
-</div>
-
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
@@ -878,49 +802,6 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
     document.querySelectorAll('.faq-a.open').forEach(a => a.classList.remove('open'))
     document.querySelectorAll('.faq-icon.open').forEach(i => i.classList.remove('open'))
     if (!isOpen) { answer.classList.add('open'); icon.classList.add('open') }
-  }
-
-  const BASICO_CHECKOUT_URL = 'https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG'
-  const upsellOverlay = document.getElementById('upsellOverlay')
-  const upsellTimerEl = document.getElementById('upsellTimer')
-  let upsellInterval = null
-
-  function updateUpsellTimer(seconds) {
-    const m = String(Math.floor(seconds / 60)).padStart(2, '0')
-    const s = String(seconds % 60).padStart(2, '0')
-    upsellTimerEl.textContent = `${m}:${s}`
-  }
-
-  function openUpsellPopup() {
-    upsellOverlay.classList.add('open')
-    let remaining = 120
-    updateUpsellTimer(remaining)
-    clearInterval(upsellInterval)
-    upsellInterval = setInterval(() => {
-      remaining--
-      updateUpsellTimer(remaining)
-      if (remaining <= 0) {
-        clearInterval(upsellInterval)
-        upsellOverlay.classList.remove('open')
-        window.location.href = BASICO_CHECKOUT_URL
-      }
-    }, 1000)
-  }
-
-  const btnBasico = document.getElementById('btn-basico')
-  if (btnBasico) {
-    btnBasico.addEventListener('click', function (e) {
-      e.preventDefault()
-      openUpsellPopup()
-    })
-  }
-
-  const upsellCloseBtn = document.getElementById('upsellClose')
-  if (upsellCloseBtn) {
-    upsellCloseBtn.addEventListener('click', function () {
-      clearInterval(upsellInterval)
-      upsellOverlay.classList.remove('open')
-    })
   }
 </script>
 </body>
