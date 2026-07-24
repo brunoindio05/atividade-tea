@@ -86,6 +86,20 @@
   .section-title { font-size: clamp(28px, 5vw, 44px); font-weight: 700; text-align: center; line-height: 1.2; margin-bottom: 16px; }
   .section-sub { color: var(--muted); text-align: center; max-width: 560px; margin: 0 auto 52px; line-height: 1.7; font-size: 16px; }
 
+  /* COMPACT SECTIONS BEFORE OFERTA */
+  #incluso, #mecanismo, #para-quem, #prova, #bonus { padding: 48px 24px; }
+  #incluso .section-label, #mecanismo .section-label, #para-quem .section-label, #prova .section-label, #bonus .section-label {
+    margin-bottom: 8px;
+  }
+  #incluso .section-title, #mecanismo .section-title, #para-quem .section-title, #prova .section-title, #bonus .section-title {
+    font-size: clamp(22px, 4vw, 34px);
+    margin-bottom: 10px;
+  }
+  #incluso .section-sub, #mecanismo .section-sub, #para-quem .section-sub, #prova .section-sub, #bonus .section-sub {
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+
   /* COLOR HELPERS */
   .c-blue   { color: var(--blue); }
   .c-green  { color: var(--green); }
@@ -112,7 +126,7 @@
   /* HERO */
   #hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 120px 24px 80px; position: relative; overflow: hidden;
+    text-align: center; padding: 80px 24px 48px; position: relative; overflow: hidden;
   }
   @media (max-width: 768px) {
     #hero {
@@ -136,7 +150,7 @@
     border-radius: 99px; padding: 8px 20px; font-size: 14px; font-weight: 600;
     color: var(--blue); margin-bottom: 32px;
   }
-  .hero-title { font-size: clamp(38px, 7vw, 72px); font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+  .hero-title { font-size: clamp(28px, 5.5vw, 56px); font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
   .hero-sub { font-size: 18px; color: var(--soft); line-height: 1.7; max-width: 620px; margin: 0 auto 40px; }
 
   .cta-group { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; }
@@ -159,9 +173,9 @@
 
   /* SOCIAL PROOF */
   #prova { border-top: 1px solid var(--border); }
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px; }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 24px; }
   .card {
-    background: var(--card); border-radius: 20px; padding: 24px;
+    background: var(--card); border-radius: 20px; padding: 18px;
     transition: transform 0.25s, box-shadow 0.25s;
     border-top: 4px solid transparent;
   }
@@ -177,17 +191,54 @@
   .stars { font-size: 13px; margin-bottom: 10px; }
   .card-text { color: var(--soft); font-size: 14px; line-height: 1.65; }
 
-  .stats-bar { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; background: var(--card); border-radius: 20px; padding: 28px; }
+  .stats-bar { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; background: var(--card); border-radius: 20px; padding: 18px; }
   @media(min-width:600px){ .stats-bar { grid-template-columns: repeat(4,1fr); } }
   .stat-item { text-align: center; }
   .stat-val { font-size: 26px; font-weight: 700; }
   .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
+  /* TESTIMONIAL CAROUSEL */
+  .testimonial-row { display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .testimonial-arrow {
+    background: var(--blue); color: #fff; border: none;
+    width: 36px; height: 36px; border-radius: 50%; font-size: 16px;
+    cursor: pointer; transition: transform 0.2s, background 0.2s; flex-shrink: 0;
+  }
+  .testimonial-arrow:hover { background: var(--purple); transform: scale(1.1); }
+  .testimonial-carousel { max-width: 480px; margin: 0 auto; position: relative; }
+  .testimonial-slide {
+    display: none;
+    background: var(--card); border-radius: 20px; padding: 28px 24px;
+    border-top: 4px solid transparent;
+  }
+  .testimonial-slide.active { display: block; animation: personaFade 0.5s ease; }
+  .testimonial-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .testimonial-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
+  .testimonial-dot.active { background: var(--blue); }
+
+  /* BONUS CAROUSEL */
+  .bonus-carousel { max-width: 400px; margin: 0 auto; position: relative; }
+  .bonus-slide {
+    display: none; text-align: center;
+    background: var(--card); border-radius: 20px; padding: 28px 24px;
+    border-top: 4px solid var(--green);
+  }
+  .bonus-slide.active { display: block; animation: personaFade 0.5s ease; }
+  .bonus-slide-icon { font-size: 48px; margin-bottom: 14px; }
+  .bonus-slide-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .bonus-slide-value { font-size: 14px; margin-bottom: 10px; }
+  .bonus-slide-value .bonus-value-old { color: var(--red); text-decoration: line-through; }
+  .bonus-slide-value .bonus-value-free { color: var(--green); font-weight: 700; }
+  .bonus-slide-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .bonus-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .bonus-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
+  .bonus-dot.active { background: var(--green); }
+
   /* FOR WHO */
   #para-quem { border-top: 1px solid var(--border); }
-  .persona-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .persona-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 24px; }
   .persona-card {
-    background: var(--card); border-radius: 20px; padding: 28px 20px; text-align: center;
+    background: var(--card); border-radius: 20px; padding: 18px 14px; text-align: center;
     transition: transform 0.25s; position: relative; overflow: hidden;
   }
   .persona-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
@@ -196,23 +247,36 @@
   .persona-card:nth-child(3)::before { background: var(--green); }
   .persona-card:nth-child(4)::before { background: var(--purple); }
   .persona-card:hover { transform: translateY(-4px); }
-  .persona-icon { font-size: 42px; margin-bottom: 14px; display: block; }
-  .persona-name { font-weight: 700; margin-bottom: 8px; }
+  .persona-icon { font-size: 48px; margin-bottom: 14px; display: block; }
+  .persona-name { font-weight: 700; margin-bottom: 8px; font-size: 20px; }
   .persona-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
-  .not-for { border: 1px solid var(--border); border-radius: 20px; padding: 24px; background: rgba(17,24,39,0.4); }
+  /* PERSONA CAROUSEL */
+  .persona-carousel { max-width: 400px; margin: 0 auto; position: relative; }
+  .persona-slide {
+    display: none;
+    background: var(--card); border-radius: 20px; padding: 32px 24px; text-align: center;
+    border-top: 4px solid transparent;
+  }
+  .persona-slide.active { display: block; animation: personaFade 0.5s ease; }
+  @keyframes personaFade { from { opacity: 0; } to { opacity: 1; } }
+  .persona-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .persona-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
+  .persona-dot.active { background: var(--blue); }
+
+  .not-for { border: 1px solid var(--border); border-radius: 20px; padding: 18px; background: rgba(17,24,39,0.4); }
   .not-for h3 { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
   .not-for li { list-style: none; display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--muted); margin-bottom: 10px; }
   .not-for li::before { content: '✕'; color: #374151; flex-shrink: 0; margin-top: 1px; }
 
   /* BENTO */
   #mecanismo { border-top: 1px solid var(--border); }
-  .bento { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .bento { display: grid; grid-template-columns: 1fr; gap: 10px; }
   @media(min-width:640px){ .bento { grid-template-columns: 1fr 1fr; } }
   @media(min-width:900px){ .bento { grid-template-columns: 2fr 1fr 1fr; } }
 
   .bento-big {
-    background: var(--card); border-radius: 24px; padding: 36px;
+    background: var(--card); border-radius: 24px; padding: 24px;
     position: relative; overflow: hidden;
     border-top: 4px solid var(--blue);
   }
@@ -224,7 +288,7 @@
     border-radius: 50%;
   }
   .bento-sm {
-    background: var(--card); border-radius: 24px; padding: 28px;
+    background: var(--card); border-radius: 24px; padding: 18px;
     transition: transform 0.25s;
   }
   .bento-sm:hover { transform: translateY(-3px); }
@@ -245,12 +309,12 @@
 
   /* INCLUDED */
   #incluso { border-top: 1px solid var(--border); }
-  .bullets-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 32px; }
+  .bullets-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 20px; }
   @media(min-width:600px){ .bullets-grid { grid-template-columns: 1fr 1fr; } }
 
   .bullet-item {
     display: flex; align-items: flex-start; gap: 14px;
-    background: var(--card); border-radius: 14px; padding: 14px 18px;
+    background: var(--card); border-radius: 14px; padding: 10px 14px;
     border-left: 4px solid transparent;
     transition: transform 0.2s;
   }
@@ -270,7 +334,7 @@
   .bullet-text { font-size: 14px; color: var(--soft); line-height: 1.55; }
 
   .highlight-box {
-    border-radius: 20px; padding: 28px 32px;
+    border-radius: 20px; padding: 18px 22px;
     background: linear-gradient(135deg, rgba(59,158,232,0.1) 0%, rgba(139,92,246,0.1) 100%);
     border: 1px solid rgba(59,158,232,0.25);
     display: flex; flex-wrap: wrap; align-items: center; gap: 18px;
@@ -414,37 +478,6 @@
   .upsell-btn-main:hover { opacity: 0.9; transform: scale(1.02); }
   .upsell-btn-secondary { display: block; text-align: center; font-size: 13px; color: var(--muted); }
   .upsell-btn-secondary:hover { color: var(--soft); }
-
-  /* SIDE NAV */
-  .side-nav-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-    z-index: 199; opacity: 0; visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  .side-nav-overlay.open { opacity: 1; visibility: visible; }
-  .side-nav {
-    position: fixed; top: 0; right: 0; height: 100vh; width: 280px;
-    background: #0A0F1A; border-left: 1px solid #1F2937;
-    z-index: 200; transform: translateX(100%);
-    transition: transform 0.3s ease;
-    display: flex; flex-direction: column; overflow-y: auto;
-  }
-  .side-nav.open { transform: translateX(0); }
-  .side-nav-close {
-    background: none; border: none; cursor: pointer; color: #fff;
-    font-size: 22px; align-self: flex-end; padding: 16px 20px;
-  }
-  .side-nav-link {
-    font-size: 15px; padding: 14px 24px; border-bottom: 1px solid #1F2937;
-    color: #D1D5DB; display: block; transition: color 0.2s;
-  }
-  .side-nav-link:hover { color: #63B8FF; }
-  .side-nav-cta {
-    background: linear-gradient(135deg, var(--blue), var(--purple));
-    color: #fff; font-weight: 700;
-    padding: 14px 24px; margin: 16px; border-radius: 12px;
-    text-align: center; display: block;
-  }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -470,23 +503,8 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
 <!-- TOPBAR -->
 <header style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #1F2937;padding:8px 14px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;">
   <img src="/img/logo.webp" alt="Mestres da Educação" style="height:36px;width:36px;border-radius:50%;object-fit:cover;" />
-  <button onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;color:#fff;font-size:24px;padding:4px 8px;">☰</button>
+  <a href="#oferta-premium" style="background:linear-gradient(135deg,#63B8FF,#8B5CF6);color:#fff;font-weight:700;font-size:12px;padding:8px 14px;border-radius:10px;white-space:nowrap;text-decoration:none;flex-shrink:0;" onclick="fbq('track', 'ViewContent', {content_name: 'Oferta Premium'})">Começar a partir de R$ 5,90</a>
 </header>
-
-<!-- SIDE NAV -->
-<div class="side-nav-overlay" id="sideNavOverlay" onclick="closeMenu()"></div>
-<nav class="side-nav" id="sideNav">
-  <button class="side-nav-close" onclick="closeMenu()" aria-label="Fechar menu">×</button>
-  <a href="#hero" class="side-nav-link" onclick="closeMenu()">🏠 Início</a>
-  <a href="#incluso" class="side-nav-link" onclick="closeMenu()">📚 O que está incluso</a>
-  <a href="#mecanismo" class="side-nav-link" onclick="closeMenu()">🎯 Por que funciona</a>
-  <a href="#para-quem" class="side-nav-link" onclick="closeMenu()">👩‍🏫 Para quem é</a>
-  <a href="#prova" class="side-nav-link" onclick="closeMenu()">⭐ Depoimentos</a>
-  <a href="#bonus" class="side-nav-link" onclick="closeMenu()">🎁 Bônus exclusivos</a>
-  <a href="#oferta" class="side-nav-link" onclick="closeMenu()">💰 Planos e preços</a>
-  <a href="#faq" class="side-nav-link" onclick="closeMenu()">❓ Dúvidas frequentes</a>
-  <a href="#oferta-premium" class="side-nav-cta" onclick="closeMenu()">Começar agora a partir de R$ 5,90</a>
-</nav>
 
 <!-- HERO -->
 <section id="hero">
@@ -506,9 +524,9 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
     </div>
     <div class="hero-badge reveal d1">💙 Material 100% pronto para imprimir</div>
     <h1 class="hero-title reveal d2">
-      +1000 Atividades para <span class="rainbow">crianças com TEA, TDA e TDAH</span>, que você aplica hoje.
+      +1000 Atividades para <span class="rainbow">crianças com Autismo e TDAH</span>, que você aplica hoje.
     </h1>
-    <img src="/img/capa.webp" alt="Material de atividades para TEA" style="display:block;max-width:560px;width:100%;margin:32px auto;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+    <img src="/img/capa.webp" alt="Material de atividades para TEA" style="display:block;max-width:420px;width:100%;margin:24px auto;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
     <p class="hero-sub reveal d3">
       Recursos pedagógicos desenvolvidos para quem ensina e acompanha crianças com Autismo, TDA e TDAH. Sem montar, sem adaptar, só imprimir e começar.
     </p>
@@ -564,7 +582,7 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
       <div class="bento-big reveal d1">
         <span class="bento-icon">🖨️</span>
         <div class="bento-title">Imprime e aplica</div>
-        <div class="bento-desc">Sem montar kits, sem recortar manualmente. Você imprime as folhas e já começa a usar. Funciona em qualquer impressora doméstica.</div>
+        <div class="bento-desc">Você imprime as atividades e já começa a usar. Funciona em qualquer impressora doméstica.</div>
         <div class="live-badge"><span class="live-dot"></span> Método principal</div>
       </div>
       <div class="bento-sm reveal d2">
@@ -575,7 +593,7 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
       <div class="bento-sm reveal d3">
         <span class="bento-icon">🎯</span>
         <div class="bento-title">Foco em habilidades reais</div>
-        <div class="bento-desc">Cada atividade trabalha algo concreto: atenção, foco, coordenação motora.</div>
+        <div class="bento-desc">Cada atividade trabalha algo concreto: atenção, foco, coordenação motora e etc.</div>
       </div>
       <div class="bento-sm reveal d4">
         <span class="bento-icon">📋</span>
@@ -596,27 +614,33 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
   <div class="container">
     <p class="section-label c-green reveal">Para quem é</p>
     <h2 class="section-title reveal d1">Feito pra quem está na linha de frente</h2>
-    <div class="persona-grid" style="margin-top:48px">
-      <div class="persona-card reveal d1">
+    <div class="persona-carousel reveal" style="margin-top:48px" id="personaCarousel">
+      <div class="persona-slide active" style="border-top-color:var(--blue);">
         <span class="persona-icon">👩‍🏫</span>
         <div class="persona-name c-blue">Professoras</div>
         <div class="persona-desc">Que precisam de material adaptado sem passar horas preparando aulas.</div>
       </div>
-      <div class="persona-card reveal d2">
+      <div class="persona-slide" style="border-top-color:var(--orange);">
         <span class="persona-icon">💙</span>
         <div class="persona-name c-orange">Mães</div>
         <div class="persona-desc">Que querem apoiar o desenvolvimento do filho em casa de forma simples e eficaz.</div>
       </div>
-      <div class="persona-card reveal d3">
+      <div class="persona-slide" style="border-top-color:var(--green);">
         <span class="persona-icon">🤲</span>
         <div class="persona-name c-green">Cuidadoras</div>
         <div class="persona-desc">Que buscam atividades para tornar a rotina mais leve e estimulante.</div>
       </div>
-      <div class="persona-card reveal d4">
+      <div class="persona-slide" style="border-top-color:var(--purple);">
         <span class="persona-icon">🧠</span>
         <div class="persona-name c-purple">Terapeutas</div>
         <div class="persona-desc">Que complementam sessões com exercícios focados em habilidades essenciais.</div>
       </div>
+    </div>
+    <div class="persona-dots" id="personaDots" style="margin-top:16px">
+      <button type="button" class="persona-dot active" onclick="personaGoTo(0)" aria-label="Slide 1"></button>
+      <button type="button" class="persona-dot" onclick="personaGoTo(1)" aria-label="Slide 2"></button>
+      <button type="button" class="persona-dot" onclick="personaGoTo(2)" aria-label="Slide 3"></button>
+      <button type="button" class="persona-dot" onclick="personaGoTo(3)" aria-label="Slide 4"></button>
     </div>
     <div class="not-for reveal d5">
       <h3>Não é pra você se...</h3>
@@ -635,39 +659,49 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
     <p class="section-label c-blue reveal">O que estão dizendo</p>
     <h2 class="section-title reveal d1">Depoimentos reais, de quem já adquiriu</h2>
 
-    <div class="cards-grid" style="margin-top:48px">
-      <div class="card reveal d1">
+    <div class="testimonial-row" style="margin-top:48px">
+      <button type="button" class="testimonial-arrow" onclick="testimonialPrev()" aria-label="Depoimento anterior">←</button>
+      <div class="testimonial-carousel reveal" id="testimonialCarousel">
+      <div class="testimonial-slide active" style="border-top-color:var(--blue);">
         <div class="card-head">
-          <img src="/img/depo-ana.webp" alt="Ana Paula" style="width:44px;height:44px;border-radius:99px;object-fit:cover;flex-shrink:0;">
+          <img src="/img/depo-ana.webp" alt="Ana Paula" style="width:52px;height:52px;border-radius:99px;object-fit:cover;flex-shrink:0;">
           <div><div class="card-name">Ana Paula</div><div class="card-role">Belo Horizonte, MG</div></div>
         </div>
         <div class="stars c-yellow">★★★★★</div>
         <p class="card-text">"Gente, eu chorei quando vi meu filho fazendo as atividades sem reclamar. Ele tem 6 anos e autismo nível 2 e normalmente não para quieto. Com essas folhinhas ele ficou 20 minutos concentrado. 20 minutos!! Pra quem é mãe de autista sabe o quanto isso é grande."</p>
       </div>
-      <div class="card reveal d2">
+      <div class="testimonial-slide" style="border-top-color:var(--green);">
         <div class="card-head">
-          <img src="/img/depo-renata.webp" alt="Renata Cavalcanti" style="width:44px;height:44px;border-radius:99px;object-fit:cover;flex-shrink:0;">
+          <img src="/img/depo-renata.webp" alt="Renata Cavalcanti" style="width:52px;height:52px;border-radius:99px;object-fit:cover;flex-shrink:0;">
           <div><div class="card-name">Renata Cavalcanti</div><div class="card-role">Ubatuba, SP</div></div>
         </div>
         <div class="stars c-yellow">★★★★★</div>
         <p class="card-text">"Trabalho com educação especial há 8 anos e sempre perdi muito tempo adaptando material. Comprei sem muita esperança por ser barato demais e me surpreendi. Já usei com 3 alunos diferentes e todos responderam bem. Virou parte da minha rotina de sala."</p>
       </div>
-      <div class="card reveal d3">
+      <div class="testimonial-slide" style="border-top-color:var(--orange);">
         <div class="card-head">
-          <img src="/img/depo-claudia.webp" alt="Cláudia Milhomen" style="width:44px;height:44px;border-radius:99px;object-fit:cover;flex-shrink:0;">
+          <img src="/img/depo-claudia.webp" alt="Cláudia Milhomen" style="width:52px;height:52px;border-radius:99px;object-fit:cover;flex-shrink:0;">
           <div><div class="card-name">Cláudia Milhomen</div><div class="card-role">Teresina, PI</div></div>
         </div>
         <div class="stars c-yellow">★★★★★</div>
         <p class="card-text">"Indico para as famílias que atendo porque é acessível e funciona. Já vi material muito mais caro que não chegava perto. O que me surpreendeu foi a progressão das atividades, dá pra ver que foi pensado por quem entende de desenvolvimento infantil."</p>
       </div>
-      <div class="card reveal d4">
+      <div class="testimonial-slide" style="border-top-color:var(--purple);">
         <div class="card-head">
-          <img src="/img/depo-fernanda.webp" alt="Fernanda Silveira" style="width:44px;height:44px;border-radius:99px;object-fit:cover;flex-shrink:0;">
+          <img src="/img/depo-fernanda.webp" alt="Fernanda Silveira" style="width:52px;height:52px;border-radius:99px;object-fit:cover;flex-shrink:0;">
           <div><div class="card-name">Fernanda Silveira</div><div class="card-role">Chapecó, SC</div></div>
         </div>
         <div class="stars c-yellow">★★★★★</div>
         <p class="card-text">"Comprei na dúvida porque R$ 5,90 parecia suspeito de tão barato. Mas veio tudo certinho na hora. Minha filha de 7 anos ficou tão animada que ela mesma pediu pra fazer mais. Já imprimi umas 3 vezes a mesma folha porque ela quer repetir."</p>
       </div>
+      </div>
+      <button type="button" class="testimonial-arrow" onclick="testimonialNextManual()" aria-label="Próximo depoimento">→</button>
+    </div>
+    <div class="testimonial-dots" id="testimonialDots">
+      <button type="button" class="testimonial-dot active" onclick="testimonialGoTo(0)" aria-label="Slide 1"></button>
+      <button type="button" class="testimonial-dot" onclick="testimonialGoTo(1)" aria-label="Slide 2"></button>
+      <button type="button" class="testimonial-dot" onclick="testimonialGoTo(2)" aria-label="Slide 3"></button>
+      <button type="button" class="testimonial-dot" onclick="testimonialGoTo(3)" aria-label="Slide 4"></button>
     </div>
 
     <div class="stats-bar reveal d5" style="margin-top:32px">
@@ -685,28 +719,30 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
     <p class="section-label c-yellow reveal">Bônus Exclusivos</p>
     <h2 class="section-title reveal d1">Você também leva <span class="rainbow">grátis</span></h2>
     <p class="section-sub reveal d2">Além do material principal, você recebe 3 bônus exclusivos sem nenhum custo adicional.</p>
-    <div class="cards-grid" style="margin-top:48px">
-      <div class="card reveal d1" style="border-top-color:var(--yellow)">
-        <div style="font-size:40px;margin-bottom:16px">🖼️</div>
-        <div class="card-name" style="font-size:17px;margin-bottom:8px">Painéis Decorativos para Sala</div>
-        <div style="color:var(--muted);font-size:13px;text-decoration:line-through;margin-bottom:6px">Valor: R$ 19,90</div>
-        <div style="color:var(--green);font-weight:700;font-size:18px;margin-bottom:12px">GRÁTIS</div>
-        <p class="card-text">Painéis temáticos prontos para imprimir e decorar o ambiente de aprendizagem de forma visual e acolhedora.</p>
+    <div class="bonus-carousel reveal" style="margin-top:48px" id="bonusCarousel">
+      <div class="bonus-slide active">
+        <div class="bonus-slide-icon">🖼️</div>
+        <div class="bonus-slide-title">Painéis Decorativos para Sala</div>
+        <div class="bonus-slide-value"><span class="bonus-value-old">de R$ 19,90</span> por <span class="bonus-value-free">GRÁTIS</span></div>
+        <p class="bonus-slide-desc">Painéis prontos para decorar e organizar o ambiente de aprendizado</p>
       </div>
-      <div class="card reveal d2" style="border-top-color:var(--blue)">
-        <div style="font-size:40px;margin-bottom:16px">🧠</div>
-        <div class="card-name" style="font-size:17px;margin-bottom:8px">Atividades para TDA e TDAH</div>
-        <div style="color:var(--muted);font-size:13px;text-decoration:line-through;margin-bottom:6px">Valor: R$ 24,90</div>
-        <div style="color:var(--green);font-weight:700;font-size:18px;margin-bottom:12px">GRÁTIS</div>
-        <p class="card-text">Material específico para crianças com TDA e TDAH, com exercícios de foco, atenção e autorregulação.</p>
+      <div class="bonus-slide">
+        <div class="bonus-slide-icon">🧠</div>
+        <div class="bonus-slide-title">Atividades para TDA e TDAH</div>
+        <div class="bonus-slide-value"><span class="bonus-value-old">de R$ 24,90</span> por <span class="bonus-value-free">GRÁTIS</span></div>
+        <p class="bonus-slide-desc">Material adaptado para crianças com déficit de atenção</p>
       </div>
-      <div class="card reveal d3" style="border-top-color:var(--purple)">
-        <div style="font-size:40px;margin-bottom:16px">🎲</div>
-        <div class="card-name" style="font-size:17px;margin-bottom:8px">Jogos Educativos Impressos</div>
-        <div style="color:var(--muted);font-size:13px;text-decoration:line-through;margin-bottom:6px">Valor: R$ 17,90</div>
-        <div style="color:var(--green);font-weight:700;font-size:18px;margin-bottom:12px">GRÁTIS</div>
-        <p class="card-text">Jogos pedagógicos para imprimir e recortar, que estimulam o raciocínio e a interação de forma lúdica.</p>
+      <div class="bonus-slide">
+        <div class="bonus-slide-icon">🎲</div>
+        <div class="bonus-slide-title">Jogos Educativos Impressos</div>
+        <div class="bonus-slide-value"><span class="bonus-value-old">de R$ 17,90</span> por <span class="bonus-value-free">GRÁTIS</span></div>
+        <p class="bonus-slide-desc">Jogos prontos para imprimir e aplicar em casa ou em sala</p>
       </div>
+    </div>
+    <div class="bonus-dots" id="bonusDots">
+      <button type="button" class="bonus-dot active" onclick="bonusGoTo(0)" aria-label="Slide 1"></button>
+      <button type="button" class="bonus-dot" onclick="bonusGoTo(1)" aria-label="Slide 2"></button>
+      <button type="button" class="bonus-dot" onclick="bonusGoTo(2)" aria-label="Slide 3"></button>
     </div>
   </div>
 </section>
@@ -742,7 +778,7 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
                 <li>✅ Aplicação imediata, sem complicação</li>
                 <li>✅ Funciona em qualquer impressora</li>
               </ul>
-              <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="btn-basico" class="btn-cta">Quero o Básico →</a>
+              <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="btn-basico" class="btn-cta" onclick="fbq('track', 'InitiateCheckout', {value: 5.90, currency: 'BRL', content_name: 'Plano Básico'})">Quero o Básico →</a>
               <p class="security-note">🔒 Pagamento 100% seguro. Após o pagamento, você recebe o acesso imediatamente.</p>
             </div>
           </div>
@@ -796,7 +832,7 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
                 <span style="font-size:20px;flex-shrink:0;">🛡️</span>
                 <span style="font-size:12px;color:#D1D5DB;">Garantia de 7 dias. Se não gostar devolvemos tudo, sem perguntas.</span>
               </div>
-              <a href="https://ggcheckout.app/checkout/v2/NX3aX9wYTpgZdykDLUtS" class="btn-cta">Quero o Premium completo →</a>
+              <a href="https://ggcheckout.app/checkout/v2/NX3aX9wYTpgZdykDLUtS" class="btn-cta" onclick="fbq('track', 'InitiateCheckout', {value: 14.90, currency: 'BRL', content_name: 'Plano Premium'})">Quero o Premium completo →</a>
               <p class="security-note">🔒 Pagamento 100% seguro. Após o pagamento, você recebe o acesso imediatamente.</p>
             </div>
           </div>
@@ -917,7 +953,7 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
         <li>🎲 Jogos Educativos Impressos GRÁTIS</li>
       </ul>
     </div>
-    <a href="https://ggcheckout.app/checkout/v2/BFbyw3rHJuWx5fYWBmqO" id="upsellBtnPremium" class="upsell-btn-main">✅ Sim! Quero o Premium por R$ 9,90 agora →</a>
+    <a href="https://ggcheckout.app/checkout/v2/BFbyw3rHJuWx5fYWBmqO" id="upsellBtnPremium" class="upsell-btn-main" onclick="fbq('track', 'InitiateCheckout', {value: 9.90, currency: 'BRL', content_name: 'Upsell Premium 9,90'})">✅ Sim! Quero o Premium por R$ 9,90 agora →</a>
     <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="upsellBtnBasico" class="upsell-btn-secondary">Não obrigado, continuar com o Básico por R$ 5,90</a>
   </div>
 </div>
@@ -936,21 +972,6 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
     document.querySelectorAll('.faq-a.open').forEach(a => a.classList.remove('open'))
     document.querySelectorAll('.faq-icon.open').forEach(i => i.classList.remove('open'))
     if (!isOpen) { answer.classList.add('open'); icon.classList.add('open') }
-  }
-
-  const sideNav = document.getElementById('sideNav')
-  const sideNavOverlay = document.getElementById('sideNavOverlay')
-
-  function toggleMenu() {
-    sideNav.classList.toggle('open')
-    sideNavOverlay.classList.toggle('open')
-    document.body.style.overflow = sideNav.classList.contains('open') ? 'hidden' : ''
-  }
-
-  function closeMenu() {
-    sideNav.classList.remove('open')
-    sideNavOverlay.classList.remove('open')
-    document.body.style.overflow = ''
   }
 
   const BASICO_CHECKOUT_URL = 'https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG'
@@ -994,6 +1015,95 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
       clearInterval(upsellInterval)
       upsellOverlay.classList.remove('open')
     })
+  }
+
+  const personaCarousel = document.getElementById('personaCarousel')
+  if (personaCarousel) {
+    const personaSlideEls = personaCarousel.querySelectorAll('.persona-slide')
+    const personaDotEls = document.getElementById('personaDots').querySelectorAll('.persona-dot')
+    let personaIndex = 0
+    let personaTimer = null
+
+    function personaShow(i) {
+      personaSlideEls.forEach((s, idx) => s.classList.toggle('active', idx === i))
+      personaDotEls.forEach((d, idx) => d.classList.toggle('active', idx === i))
+      personaIndex = i
+    }
+
+    function personaNext() {
+      personaShow((personaIndex + 1) % personaSlideEls.length)
+    }
+
+    function personaStart() {
+      personaTimer = setInterval(personaNext, 3000)
+    }
+
+    window.personaGoTo = function (i) {
+      personaShow(i)
+      clearInterval(personaTimer)
+      personaStart()
+    }
+
+    personaStart()
+    personaCarousel.addEventListener('mouseenter', () => clearInterval(personaTimer))
+    personaCarousel.addEventListener('mouseleave', () => personaStart())
+  }
+
+  const bonusCarousel = document.getElementById('bonusCarousel')
+  if (bonusCarousel) {
+    const bonusSlideEls = bonusCarousel.querySelectorAll('.bonus-slide')
+    const bonusDotEls = document.getElementById('bonusDots').querySelectorAll('.bonus-dot')
+    let bonusIndex = 0
+    let bonusTimer = null
+
+    function bonusShow(i) {
+      bonusSlideEls.forEach((s, idx) => s.classList.toggle('active', idx === i))
+      bonusDotEls.forEach((d, idx) => d.classList.toggle('active', idx === i))
+      bonusIndex = i
+    }
+
+    function bonusNext() {
+      bonusShow((bonusIndex + 1) % bonusSlideEls.length)
+    }
+
+    function bonusStart() {
+      bonusTimer = setInterval(bonusNext, 3000)
+    }
+
+    window.bonusGoTo = function (i) {
+      bonusShow(i)
+      clearInterval(bonusTimer)
+      bonusStart()
+    }
+
+    bonusStart()
+    bonusCarousel.addEventListener('mouseenter', () => clearInterval(bonusTimer))
+    bonusCarousel.addEventListener('mouseleave', () => bonusStart())
+  }
+
+  const testimonialCarousel = document.getElementById('testimonialCarousel')
+  if (testimonialCarousel) {
+    const testimonialSlideEls = testimonialCarousel.querySelectorAll('.testimonial-slide')
+    const testimonialDotEls = document.getElementById('testimonialDots').querySelectorAll('.testimonial-dot')
+    let testimonialIndex = 0
+
+    function testimonialShow(i) {
+      testimonialSlideEls.forEach((s, idx) => s.classList.toggle('active', idx === i))
+      testimonialDotEls.forEach((d, idx) => d.classList.toggle('active', idx === i))
+      testimonialIndex = i
+    }
+
+    window.testimonialGoTo = function (i) {
+      testimonialShow(i)
+    }
+
+    window.testimonialNextManual = function () {
+      testimonialShow((testimonialIndex + 1) % testimonialSlideEls.length)
+    }
+
+    window.testimonialPrev = function () {
+      testimonialShow((testimonialIndex - 1 + testimonialSlideEls.length) % testimonialSlideEls.length)
+    }
   }
 </script>
 </body>
