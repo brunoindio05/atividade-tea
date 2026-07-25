@@ -333,6 +333,89 @@
   .bullet-emoji { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
   .bullet-text { font-size: 14px; color: var(--soft); line-height: 1.55; }
 
+  /* INCLUSO CAROUSEL */
+  .incluso-carousel-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .incluso-track {
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    background: var(--card);
+  }
+  .incluso-slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  .incluso-slide.active {
+    display: flex;
+  }
+  .incluso-img {
+    width: 100%;
+    aspect-ratio: 210/297;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+  .incluso-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    width: 100%;
+  }
+  .incluso-emoji {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .incluso-texto {
+    font-size: 13px;
+    color: var(--soft);
+    line-height: 1.5;
+  }
+  .incluso-arrow {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .incluso-arrow:hover {
+    background: var(--purple);
+    transform: scale(1.1);
+  }
+  .incluso-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+  .incluso-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s;
+  }
+  .incluso-dot.active {
+    background: var(--blue);
+  }
+
   .highlight-box {
     border-radius: 20px; padding: 18px 22px;
     background: linear-gradient(135deg, rgba(59,158,232,0.1) 0%, rgba(139,92,246,0.1) 100%);
@@ -549,17 +632,93 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
     <h2 class="section-title reveal d1">Tudo que você vai receber</h2>
     <p class="section-sub reveal d2">Um conjunto completo de atividades pedagógicas, organizado por tipo de habilidade e pronto para usar.</p>
 
-    <div class="bullets-grid">
-      <div class="bullet-item reveal d1"><span class="bullet-emoji">✏️</span><span class="bullet-text">Atividades adaptadas de grafismo com progressão de dificuldade</span></div>
-      <div class="bullet-item reveal d2"><span class="bullet-emoji">👁️</span><span class="bullet-text">Exercícios de rotina e percepção visual e discriminação de formas</span></div>
-      <div class="bullet-item reveal d1"><span class="bullet-emoji">🧩</span><span class="bullet-text">Sequências lógicas adaptadas para crianças com TEA</span></div>
-      <div class="bullet-item reveal d2"><span class="bullet-emoji">✋</span><span class="bullet-text">Atividades de coordenação motora fina e ampla</span></div>
-      <div class="bullet-item reveal d1"><span class="bullet-emoji">🔤</span><span class="bullet-text">Introdução a letras e números com suporte visual</span></div>
-      <div class="bullet-item reveal d2"><span class="bullet-emoji">🎨</span><span class="bullet-text">Páginas de colorir temáticas com instruções simples</span></div>
-      <div class="bullet-item reveal d1"><span class="bullet-emoji">📐</span><span class="bullet-text">Exercícios sensoriais, contorno e traçado controlado</span></div>
-      <div class="bullet-item reveal d2"><span class="bullet-emoji">🧠</span><span class="bullet-text">Atividades lúdicas,específicas de foco, atenção e autorregulação para TEA</span></div>
-      <div class="bullet-item reveal d1"><span class="bullet-emoji">📄</span><span class="bullet-text">Mais de 1000 atividades prontas para impressão em A4</span></div>
-      <div class="bullet-item reveal d2"><span class="bullet-emoji">♻️</span><span class="bullet-text">PDF de alta resolução que você imprime quantas vezes quiser</span></div>
+    <div class="incluso-carousel-wrap">
+      <button type="button" class="incluso-arrow" onclick="inclusoPrev()" aria-label="Atividade anterior">←</button>
+      <div class="incluso-track" id="inclusoTrack">
+        <div class="incluso-slide active">
+          <img src="/img/grafismo.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">✏️</span>
+            <span class="incluso-texto">Atividades adaptadas de grafismo com progressão de dificuldade</span>
+          </div>
+        </div>
+        <div class="incluso-slide">
+          <img src="/img/rotina.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">👁️</span>
+            <span class="incluso-texto">Exercícios de rotina e percepção visual e discriminação de formas</span>
+          </div>
+        </div>
+        <div class="incluso-slide">
+          <img src="/img/sequencia.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">🧩</span>
+            <span class="incluso-texto">Sequências lógicas adaptadas para crianças com TEA</span>
+          </div>
+        </div>
+        <div class="incluso-slide">
+          <img src="/img/coordenacao.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">✋</span>
+            <span class="incluso-texto">Atividades de coordenação motora fina e ampla</span>
+          </div>
+        </div>
+        <div class="incluso-slide">
+          <img src="/img/letras_e_numeros.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">🔤</span>
+            <span class="incluso-texto">Introdução a letras e números com suporte visual</span>
+          </div>
+        </div>
+        <div class="incluso-slide">
+          <img src="/img/colorir.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">🎨</span>
+            <span class="incluso-texto">Páginas de colorir temáticas com instruções simples</span>
+          </div>
+        </div>
+        <div class="incluso-slide">
+          <img src="/img/sensoriais.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">📐</span>
+            <span class="incluso-texto">Exercícios sensoriais, contorno e traçado controlado</span>
+          </div>
+        </div>
+        <div class="incluso-slide">
+          <img src="/img/ludicas.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">🧠</span>
+            <span class="incluso-texto">Atividades lúdicas, específicas de foco, atenção e autorregulação para TEA</span>
+          </div>
+        </div>
+        <div class="incluso-slide">
+          <img src="/img/impressao.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">📄</span>
+            <span class="incluso-texto">Mais de 1000 atividades prontas para impressão em A4</span>
+          </div>
+        </div>
+        <div class="incluso-slide">
+          <img src="/img/resolucao.webp" class="incluso-img" alt="atividade" />
+          <div class="incluso-info">
+            <span class="incluso-emoji">♻️</span>
+            <span class="incluso-texto">PDF de alta resolução que você imprime quantas vezes quiser</span>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="incluso-arrow" onclick="inclusoNext()" aria-label="Próxima atividade">→</button>
+    </div>
+    <div class="incluso-dots" id="inclusoDots">
+      <button type="button" class="incluso-dot active" onclick="inclusoGoTo(0)" aria-label="Slide 1"></button>
+      <button type="button" class="incluso-dot" onclick="inclusoGoTo(1)" aria-label="Slide 2"></button>
+      <button type="button" class="incluso-dot" onclick="inclusoGoTo(2)" aria-label="Slide 3"></button>
+      <button type="button" class="incluso-dot" onclick="inclusoGoTo(3)" aria-label="Slide 4"></button>
+      <button type="button" class="incluso-dot" onclick="inclusoGoTo(4)" aria-label="Slide 5"></button>
+      <button type="button" class="incluso-dot" onclick="inclusoGoTo(5)" aria-label="Slide 6"></button>
+      <button type="button" class="incluso-dot" onclick="inclusoGoTo(6)" aria-label="Slide 7"></button>
+      <button type="button" class="incluso-dot" onclick="inclusoGoTo(7)" aria-label="Slide 8"></button>
+      <button type="button" class="incluso-dot" onclick="inclusoGoTo(8)" aria-label="Slide 9"></button>
+      <button type="button" class="incluso-dot" onclick="inclusoGoTo(9)" aria-label="Slide 10"></button>
     </div>
 
     <div class="highlight-box reveal d3">
@@ -653,6 +812,8 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
   </div>
 </section>
 
+<a href="#oferta-basico" class="btn-primary" style="padding:18px 40px;margin:0 auto 48px auto;display:block;width:fit-content;">Quero acessar agora →</a>
+
 <!-- SOCIAL PROOF -->
 <section id="prova" style="border-top:1px solid var(--border)">
   <div class="container">
@@ -719,6 +880,16 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
     <p class="section-label c-yellow reveal">Bônus Exclusivos</p>
     <h2 class="section-title reveal d1">Você também leva <span class="rainbow">grátis</span></h2>
     <p class="section-sub reveal d2">Além do material principal, você recebe 3 bônus exclusivos sem nenhum custo adicional.</p>
+    <div style="background:linear-gradient(135deg,rgba(99,184,255,0.15),rgba(139,92,246,0.15));border:2px solid rgba(99,184,255,0.4);border-radius:20px;padding:24px;margin-bottom:16px;text-align:center;">
+      <div style="font-size:40px;margin-bottom:12px;">👑</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#63B8FF;margin-bottom:8px;">BONUS PRINCIPAL</div>
+      <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">Comunidade VIP no WhatsApp</div>
+      <div style="font-size:13px;color:#9CA3AF;margin-bottom:12px;">Atividades gratuitas toda segunda, quarta e sexta direto no grupo</div>
+      <div style="font-size:13px;">
+        <span style="color:#6B7280;text-decoration:line-through;">de R$ 19,90 por mes</span>
+        <span style="color:#4CAF7D;font-weight:700;margin-left:8px;">GRATIS</span>
+      </div>
+    </div>
     <div class="bonus-carousel reveal" style="margin-top:48px" id="bonusCarousel">
       <div class="bonus-slide active">
         <div class="bonus-slide-icon">🖼️</div>
@@ -823,6 +994,10 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
               <div class="offer-bonus">
                 <p class="offer-bonus-title">🎁 Bônus exclusivos</p>
                 <ul>
+                  <li>👑 Grupo VIP no WhatsApp
+                    <span class="bonus-old">de R$ 19,90/mês</span> por
+                    <span class="bonus-free">GRÁTIS</span>
+                  </li>
                   <li>🖼️ Painéis Decorativos para Sala<span class="bonus-old">de R$ 19,90</span> por <span class="bonus-free">GRÁTIS</span></li>
                   <li>🧠 Atividades para TDA e TDAH<span class="bonus-old">de R$ 24,90</span> por <span class="bonus-free">GRÁTIS</span></li>
                   <li>🎲 Jogos Educativos Impressos<span class="bonus-old">de R$ 17,90</span> por <span class="bonus-free">GRÁTIS</span></li>
@@ -1103,6 +1278,31 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
 
     window.testimonialPrev = function () {
       testimonialShow((testimonialIndex - 1 + testimonialSlideEls.length) % testimonialSlideEls.length)
+    }
+  }
+
+  const inclusoTrack = document.getElementById('inclusoTrack')
+  if (inclusoTrack) {
+    const inclusoSlideEls = inclusoTrack.querySelectorAll('.incluso-slide')
+    const inclusoDotEls = document.getElementById('inclusoDots').querySelectorAll('.incluso-dot')
+    let inclusoIndex = 0
+
+    function inclusoShow(i) {
+      inclusoSlideEls.forEach((s, idx) => s.classList.toggle('active', idx === i))
+      inclusoDotEls.forEach((d, idx) => d.classList.toggle('active', idx === i))
+      inclusoIndex = i
+    }
+
+    window.inclusoGoTo = function (i) {
+      inclusoShow(i)
+    }
+
+    window.inclusoNext = function () {
+      inclusoShow((inclusoIndex + 1) % inclusoSlideEls.length)
+    }
+
+    window.inclusoPrev = function () {
+      inclusoShow((inclusoIndex - 1 + inclusoSlideEls.length) % inclusoSlideEls.length)
     }
   }
 </script>
