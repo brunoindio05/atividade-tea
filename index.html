@@ -470,6 +470,11 @@
     transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   }
   .btn-cta:hover { opacity: 0.9; transform: scale(1.02); box-shadow: 0 0 56px rgba(59,158,232,0.4); }
+  @keyframes pulse-soft {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); box-shadow: 0 0 28px rgba(99,184,255,0.45); }
+  }
+  .btn-cta-premium { animation: pulse-soft 2.5s; }
   .security-note { text-align: center; font-size: 12px; color: var(--muted); margin-bottom: 28px; }
   .guarantee { border-top: 1px solid var(--border); padding-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
   .guarantee .g-icon { font-size: 48px; flex-shrink: 0; }
@@ -930,10 +935,10 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
                 <p>Material completo, imprimível, pronto para aplicar</p>
               </div>
               <div class="price-block">
-                <div class="price-old">De R$ 29,90</div>
+                <div class="price-old">De R$ 47,00</div>
                 <div class="price-main">
                   <span class="price-cur">R$</span>
-                  <span class="price-val">5</span>
+                  <span class="price-val">14</span>
                   <span class="price-cents">,90</span>
                 </div>
                 <div class="price-note">via Pix ou Cartão - Pagamento único</div>
@@ -944,7 +949,7 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
                 <li>✅ Aplicação imediata, sem complicação</li>
                 <li>✅ Funciona em qualquer impressora</li>
               </ul>
-              <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="btn-basico" class="btn-cta" onclick="fbq('track', 'InitiateCheckout', {value: 5.90, currency: 'BRL', content_name: 'Plano Básico'})">Quero o Básico →</a>
+              <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="btn-basico" class="btn-cta" onclick="fbq('track', 'InitiateCheckout', {value: 14.90, currency: 'BRL', content_name: 'Plano Básico'})">Quero o Básico →</a>
               <p class="security-note">🔒 Pagamento 100% seguro. Após o pagamento, você recebe o acesso imediatamente.</p>
             </div>
           </div>
@@ -965,26 +970,20 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
               </div>
               <div class="price-block">
                 <div style="text-align:center;font-size:13px;color:#6B7280;margin-bottom:6px;">
-                  Tudo isso valeria <span style="color:#fff;font-weight:700;text-decoration:line-through;">R$ 214,50</span>
+                  Tudo isso valeria <span style="color:#fff;font-weight:700;text-decoration:line-through;">R$ 197,00</span>
                 </div>
                 <div class="price-main">
-                  <span class="price-cur">2x de R$</span>
-                  <span class="price-val">8</span>
-                  <span class="price-cents">,54</span>
+                  <span class="price-cur">R$</span>
+                  <span class="price-val">39</span>
+                  <span class="price-cents">,90</span>
                 </div>
-                <div style="text-align:center;font-size:12px;color:#6B7280;margin-top:4px;">
-                  ou R$ 14,90 à vista
-                </div>
-                <div class="price-note">via Cartão ou Pix - Pagamento único</div>
+                <div class="price-note">via Pix e Cartão — pagamento único, sem mensalidade</div>
               </div>
               <ul class="offer-bullets">
-                <li>✅ Mais de 1000 atividades prontas para imprimir</li>
-                <li>✅ PDF de alta resolução (A4)</li>
-                <li>✅ Acesso permanente e ilimitado</li>
-                <li>✅ Aplicação imediata, sem complicação</li>
-                <li>✅ Funciona em qualquer impressora</li>
+                <li>✅ <strong>Tudo do Plano Básico incluso</strong></li>
                 <li>✅ +101 Ideias para Brincar e Ensinar Autistas</li>
-                <li>✅ +300 Atividades Lúdicas de Alfabetização para TEA</li>
+                <li>✅ +300 Atividades Lúdicas de Alfabetização</li>
+                <li>✅ Método Prático de Alfabetização e Psicomotricidade para Crianças com Autismo</li>
               </ul>
               <div class="offer-bonus">
                 <p class="offer-bonus-title">🎁 Bônus exclusivos</p>
@@ -998,11 +997,7 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
                   <li>🎲 Jogos Educativos Impressos<span class="bonus-old">de R$ 17,90</span> por <span class="bonus-free">GRÁTIS</span></li>
                 </ul>
               </div>
-              <div style="display:flex;align-items:center;gap:8px;background:rgba(99,184,255,0.08);border:1px solid rgba(99,184,255,0.2);border-radius:12px;padding:10px 14px;margin-bottom:12px;">
-                <span style="font-size:20px;flex-shrink:0;">🛡️</span>
-                <span style="font-size:12px;color:#D1D5DB;">Garantia de 7 dias. Se não gostar devolvemos tudo, sem perguntas.</span>
-              </div>
-              <a href="https://ggcheckout.app/checkout/v2/NX3aX9wYTpgZdykDLUtS" class="btn-cta" onclick="fbq('track', 'InitiateCheckout', {value: 14.90, currency: 'BRL', content_name: 'Plano Premium'})">Quero o Premium completo →</a>
+              <a href="https://ggcheckout.app/checkout/v2/NX3aX9wYTpgZdykDLUtS" class="btn-cta btn-cta-premium" style="animation: pulse-soft 2s ease-in-out infinite;" onclick="fbq('track', 'InitiateCheckout', {value: 39.90, currency: 'BRL', content_name: 'Plano Premium'})">Quero o Premium completo →</a>
               <p class="security-note">🔒 Pagamento 100% seguro. Após o pagamento, você recebe o acesso imediatamente.</p>
             </div>
           </div>
@@ -1135,8 +1130,8 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
     <div class="upsell-card">
       <span class="upsell-badge">🔥 MAIS VENDIDO</span>
       <h3>Plano Premium</h3>
-      <div class="upsell-price-old">R$ 14,90</div>
-      <div class="upsell-price-new">R$ 9,90</div>
+      <div class="upsell-price-old">R$ 39,90</div>
+      <div class="upsell-price-new">R$ 24,90</div>
       <ul class="upsell-bonus-list">
         <li>✅ Mais de 1000 atividades para crianças com TEA</li>
         <li>✅ +101 Ideias para Brincar e Ensinar Autistas</li>
@@ -1146,14 +1141,19 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
         <li>🎲 Jogos Educativos Impressos GRÁTIS</li>
       </ul>
     </div>
-    <a href="https://ggcheckout.app/checkout/v2/BFbyw3rHJuWx5fYWBmqO" id="upsellBtnPremium" class="upsell-btn-main" onclick="fbq('track', 'InitiateCheckout', {value: 9.90, currency: 'BRL', content_name: 'Upsell Premium 9,90'})">✅ Sim! Quero o Premium por R$ 9,90 agora →</a>
-    <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="upsellBtnBasico" class="upsell-btn-secondary">Não obrigado, continuar com o Básico por R$ 5,90</a>
+    <a href="https://ggcheckout.app/checkout/v2/BFbyw3rHJuWx5fYWBmqO" id="upsellBtnPremium" class="upsell-btn-main" onclick="fbq('track', 'InitiateCheckout', {value: 24.90, currency: 'BRL', content_name: 'Upsell Premium 24,90'})">✅ Sim! Quero o Premium por R$ 24,90 agora →</a>
+    <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="upsellBtnBasico" class="upsell-btn-secondary">Não obrigado, continuar com o Básico por R$ 14,90</a>
   </div>
 </div>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' })
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 
