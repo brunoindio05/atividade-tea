@@ -601,7 +601,7 @@ document.addEventListener('keydown', e => {
 <!-- TOPBAR -->
 <header style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #1F2937;padding:8px 14px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;">
   <img src="/img/v2-logo.webp" alt="Mestres da Educação" style="height:36px;width:36px;border-radius:50%;object-fit:cover;" />
-  <a href="#oferta-basico" style="background:linear-gradient(135deg,#63B8FF,#8B5CF6);color:#fff;font-weight:700;font-size:12px;padding:8px 14px;border-radius:10px;white-space:nowrap;text-decoration:none;flex-shrink:0;" onclick="fbq('track', 'ViewContent', {content_name: 'Oferta Premium'})">Comece a partir de R$ 14,90</a>
+  <a href="#oferta-basico" style="background:linear-gradient(135deg,#63B8FF,#8B5CF6);color:#fff;font-weight:700;font-size:12px;padding:8px 14px;border-radius:10px;white-space:nowrap;text-decoration:none;flex-shrink:0;" onclick="fbq('track', 'ViewContent', {content_name: 'Oferta Básico'})">Comece a partir de R$ 14,90</a>
 </header>
 
 <!-- HERO -->
@@ -1397,7 +1397,7 @@ document.addEventListener('keydown', e => {
       </ul>
     </div>
     <a href="https://ggcheckout.app/checkout/v2/BFbyw3rHJuWx5fYWBmqO" id="upsellBtnPremium" class="upsell-btn-main" onclick="fbq('track', 'InitiateCheckout', {value: 24.90, currency: 'BRL', content_name: 'Upsell Premium 24,90'})">✅ Sim! Quero o Premium por R$ 24,90 agora →</a>
-    <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="upsellBtnBasico" class="upsell-btn-secondary">Não obrigado, continuar com o Básico por R$ 14,90</a>
+    <a href="https://ggcheckout.app/checkout/v2/BT8v2XnSKQUBoSv0PSTG" id="upsellBtnBasico" class="upsell-btn-secondary" onclick="fbq('track', 'InitiateCheckout', {value: 14.90, currency: 'BRL', content_name: 'Plano Básico via Popup'})">Não obrigado, continuar com o Básico por R$ 14,90</a>
   </div>
 </div>
 
