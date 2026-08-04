@@ -585,6 +585,16 @@ src="https://www.facebook.com/tr?id=4482245092056605&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script defer src="/_vercel/insights/script.js"></script>
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if (e.key === 'F12' ||
+     (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+     (e.ctrlKey && e.key === 'u')) {
+    e.preventDefault();
+  }
+});
+</script>
 </head>
 <body>
 
